@@ -8,16 +8,33 @@ var getEventData = function(city){
     fetch(concertApi)
     .then(function(response){
         response.json().then(function(data){
+           
+          
             console.log(data.events)
-            console.log(data.events[1]);
-            console.log(data.events[1].datetime_local);
-            console.log(data.events[1].performers[0].name);
-            console.log(data.events[1].performers[1].name);
-            console.log(data.events[1].title);
-            console.log(data.events[1].venue.name);
-            console.log(data.events[1].venue.url);
+
+            for (var i = 0; i < data.events.length; i++){
+
+                var eventTitle = data.events[i].title;
+                var eventDate = data.events[i].datetime_local;
+                var eventVenue = data.events[i].venue.name
+                var eventUrl = data.events[i].venue.url;
+                var eventPerformers = data.events[i].performers
+                
+                console.log(eventTitle);
+                console.log(eventDate);
+                console.log(eventVenue);
+                console.log(eventUrl);
+                console.log(eventPerformers);
+                
+                createEventCard(eventTitle, eventDate, eventVenue, eventUrl ,eventPerformers)
+            };
         });
     });
-}
+};
+
+var createEventCard = function(eventTitle, eventDate, eventVenue, eventUrl ,eventPerformers){
+    
+
+};
 
 getEventData("ottawa");
