@@ -1,6 +1,17 @@
 
 
+var getVideoData = function(band){
+    var videoApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + band + "&maxResults=1&type=playlist&key=AIzaSyCbq62d8uqQFXIYt2QwFKC3x2we8t8KYEc"
 
+    fetch(videoApi)
+    .then(function(response){
+        response.json().then(function(data){
+            console.log(data);
+            var videoListId = data.items[0].id.playlistId;
+            console.log(videoListId)
+        });
+    });
+};
 
 var getEventData = function(city){
     var concertApi = "https://api.seatgeek.com/2/events?venue.city=" + city + "&q=concert&client_id=MjYzNTM0MjB8MTY0ODc0MDYyMS44ODMyNzE1";
@@ -38,3 +49,4 @@ var createEventCard = function(eventTitle, eventDate, eventVenue, eventUrl ,even
 };
 
 getEventData("ottawa");
+getVideoData("rise against");
