@@ -10,9 +10,90 @@
 </head>
 
 <body>
-<header></header>
+<!-- HERO section -->
+    <section class="hero is-halfheight">
+        <div class="hero-body container">
+            <!-- LOGO IMG -->
+            <div class="logo">
+                <figure class="image is-256x256">
+                    <img class="is-rounded" src="./assets/images/Concertium_Logo.jpg" alt="Concertium's logo">
+                </figure>
+            </div>
+            <!-- SEARCH TITLE -->
+            <p class="title has-text-white mt-6">
+                Search for concerts in your city!
+            </p>
+            <!-- SEARCH FIELD & BUTTON -->
+            <div class="field is-grouped mt-1">
+                <p class="control is-expanded">
+                    <input class="input is-medium" type="text" placeholder="Enter city name">
+                </p>
+                <div class="control">
+                    <button class="button is-medium is-link">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+<!-- END of HERO -->
 
+<!-- RESULTS section -->
 
+<section class="results section">
+    <h2 class="is-size-2 has-text-weight-bold block">Search Results</h2>
+    <!-- CONTAINER FOR CARDS -->
+    <div class="columns">
+        <div class="card column is-3">
+        
+        <!-- EXAMPLE CARD -->
+        
+            <!-- CARD TITLE AREA -->
+            <div class="media">
+                <div class="media-content">
+                    <time datetime="2022-5-1">7:00PM - 1 May 2022</time>
+                    <p class="title is-4 mt-1">John Smith</p>
+                    <p class="subtitle is-5">Canadian Tire Center</p>
+                </div>
+            </div>
+            <!-- CARD IMG -->
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="https://seatgeek.com/images/performers-landscape/billy-talent-ff43d3/2280/29669/huge.jpg" alt="Placeholder image">
+                </figure>
+            </div>
+            <!-- CARD CONTENT -->
+            <div class="card-content block">
+                <div class="content">
+                    <!-- BUY A TICKET BUTTON -->
+                    <div class="control">
+                        <button class="button is-large is-fullwidth is-link">
+                            Buy a ticket
+                        </button>
+                    </div>
+                    <!-- LISTEN/MODAL LAUNCH BUTTON -->
+                    <div class="control mt-2 block">
+                        <button class="button is-large is-fullwidth is-primary">
+                            Listen here
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END of RESULTS -->
+
+<!-- FOOTER section -->
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <b>Concertium</b> is made with love by <a href="https://github.com/MorningSol">Patrick Laplante</a> and <a href="https://github.com/narcpat">Patrick Narcisse</a>.
+        </p>
+    </div>
+</footer>
+<!-- END of FOOTER -->
 
 <script src="./assets/js/script.js"></script>
 </body>
