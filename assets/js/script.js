@@ -1,5 +1,7 @@
 var ytPlayerEl = document.querySelector("#ytplayer");
-var searchBtnEl = document.querySelector("#")
+var citySearchBtnEl = document.querySelector("#city-search")
+var cityInputEl = document.querySelector("#city-input")
+
 
 var getVideoData = function(band){
     var videoApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + band + "&maxResults=1&type=video&key=AIzaSyCbq62d8uqQFXIYt2QwFKC3x2we8t8KYEc"
@@ -53,25 +55,33 @@ var createEventCard = function(eventTitle, eventDate, eventVenue, eventUrl ,even
         var performer = eventPerformers[i].name;
         var performerImage = eventPerformers[i].image;
         
-        var eventCard = document.createElement("div");
-        eventCard.classList = "Card";
+        // var eventCard = document.createElement("div");
+        // eventCard.classList = "Card";
 
-        var cardTitle = document.createElement("");
-        cardTitle.classList= "card-header";
+        // var cardTitle = document.createElement("");
+        // cardTitle.classList= "card-header";
 
-        var cardImage = document.createElement("");
-        cardImage.classList = "card-image";
+        // var cardImage = document.createElement("");
+        // cardImage.classList = "card-image";
 
-        var cardInfo = document.createElement("");
-        cardInfo.classList = "card-content";
-
-
-
+        // var cardInfo = document.createElement("");
+        // cardInfo.classList = "card-content";
 
     }
 
-
+    
 };
-searchBtnEl.addEventListener("submit", getEventData)
+
+var searchButtonHandler = function(){
+    var city = cityInputEl.value.trim();
+    getEventData(city);
+    
+}
+
+
+
+citySearchBtnEl.addEventListener("click",searchButtonHandler)
+
+
 // getEventData("ottawa");
 // getVideoData("billy talent");

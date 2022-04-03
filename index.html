@@ -24,14 +24,12 @@
                 Search for concerts in your city!
             </p>
             <!-- SEARCH FIELD & BUTTON -->
-            <div class="field is-grouped mt-1">
-                <p class="control is-expanded">
-                    <input class="input is-medium" type="text" placeholder="Enter city name">
-                </p>
+            <div  class="field is-grouped mt-1">
+                <div class="control is-expanded">
+                    <input id="city-input" name="city-input" class="input is-medium" type="text" placeholder="Enter city name">
+                </div>
                 <div class="control">
-                    <button class="button is-medium is-link">
-                        Search
-                    </button>
+                    <button id="city-search" class="button is-medium is-link">Search</button>
                 </div>
             </div>
         </div>
@@ -95,6 +93,7 @@
 </footer>
 <!-- END of FOOTER -->
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>
