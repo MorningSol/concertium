@@ -47,6 +47,14 @@ var getEventData = function(city){
 
 var createEventCard = function(eventTitle, eventDate, eventVenue, eventUrl ,eventPerformers){
     
+    
+    for (var i = 0; i < eventPerformers.length; i++){
+        var performer = eventPerformers[i].name;
+        var performerImage = eventPerformers[i].image;
+
+
+    }
+
 
 };
 
