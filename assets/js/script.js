@@ -1,4 +1,5 @@
 var ytPlayerEl = document.querySelector("#ytplayer");
+var searchBtnEl = document.querySelector("#")
 
 var getVideoData = function(band){
     var videoApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + band + "&maxResults=1&type=video&key=AIzaSyCbq62d8uqQFXIYt2QwFKC3x2we8t8KYEc"
@@ -51,12 +52,26 @@ var createEventCard = function(eventTitle, eventDate, eventVenue, eventUrl ,even
     for (var i = 0; i < eventPerformers.length; i++){
         var performer = eventPerformers[i].name;
         var performerImage = eventPerformers[i].image;
+        
+        var eventCard = document.createElement("div");
+        eventCard.classList = "Card";
+
+        var cardTitle = document.createElement("");
+        cardTitle.classList= "card-header";
+
+        var cardImage = document.createElement("");
+        cardImage.classList = "card-image";
+
+        var cardInfo = document.createElement("");
+        cardInfo.classList = "card-content";
+
+
 
 
     }
 
 
 };
-
+searchBtnEl.addEventListener("submit", getEventData)
 // getEventData("ottawa");
 // getVideoData("billy talent");
