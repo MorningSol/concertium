@@ -1,22 +1,14 @@
+/* HERO styles */
 .hero {
   background-image: url(../images/Concertium-BG.jpg);
+  background-size: cover;
+	background-position: center;
+	background-position: 100%;
 }
 
-.hero.has-background {
-  position: relative;
-  overflow: hidden;
-}
-.hero-background {
-  position: absolute;
-  object-fit: cover;
-  object-position: center center;
-  width: 100%;
-  height: 100%;
-}
-.hero-background.is-transparent {
-  opacity: 0.75;
+.hero .container {
+  flex-direction: column;
+  justify-content: center;
 }
 
-.hero p {
-  opacity: initial;
-}
+/* END of HERO STYLES */
