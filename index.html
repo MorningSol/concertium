@@ -231,24 +231,39 @@
     </div>
     <!-- END of CARD CONTAINER -->
 
-    <!-- MODAL SECTION -->
+    <!-- LISTEN MODAL SECTION -->
     <div id="listen-here-modal" class="modal">
         <div class="modal-background"></div>
-        <div class="modal-card">
+        <div class="modal-content">
             <header class="modal-card-head">
-                <p class="modal-card-title">Hear a sample of what's to come!</p>
-            <button class="delete" aria-label="close"></button>
+                <p class="modal-card-title has-text-centered">Hear a sample of what's to come!</p>
+            <button class="delete is-large" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
                 <!-- iFRAME  -->
                 <iframe id="ytplayer" type="text/html" width="640" height="360" src="" frameborder="0"></iframe>
             </section>
-            <footer class="modal-card-foot">
-            </footer>
+            
         </div>
     </div>
-    <!-- END of MODAL -->
+    <!-- END of LISTEN MODAL -->
 
+    <!-- MESSAGE MODAL SECTION -->
+    <div id="message-modal" class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title has-text-centered has-text-danger">Warning!</p>
+            <button class="delete is-large" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- EMPTY P TAG -->
+                <p></p>
+            </section>
+            <footer class="modal-card-foot"></footer>
+        </div>
+    </div>
+    <!-- END of MESSAGE MODAL -->
 </section>
 <!-- END of RESULTS -->
 
