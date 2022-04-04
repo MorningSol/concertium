@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Concertium</title>
+</head>
+
+<body>
+<!-- HERO section -->
+    <section class="hero is-halfheight">
+        <div class="hero-body container">
+            <!-- LOGO IMG -->
+            <div class="logo">
+                <figure class="image is-256x256">
+                    <img class="is-rounded" src="./assets/images/Concertium_Logo.jpg" alt="Concertium's logo">
+                </figure>
+            </div>
+            <!-- SEARCH TITLE -->
+            <h1 class="is-size-2 mt-6">
+                Search for concerts in your city!
+            </h1>
+            <!-- SEARCH FIELD & BUTTON -->
+            <form id="city-search" class="field is-grouped mt-1">
+                <div class="control is-expanded">
+                    <input id="city-input" name="city-input" class="input is-medium" type="text" placeholder="Enter city name">
+                </div>
+                <div class="control">
+                    <button class="button is-medium is-link">Search</button>
+                </div>
+            </form>
+        </div>
+        
+    </section>
+<!-- END of HERO -->
+
+<!-- RESULTS section -->
+<section class="results section">
+    <!-- SEARCH RESULTS TITLE -->
+    <h2 class="is-size-2 has-text-weight-bold block">Search Results</h2>
+    <!-- CONTAINER FOR CARDS -->
+    <div id="results-box" class="tiles columns is-multiline mt-3">
+
+    </div>
+    <!-- END of CARD CONTAINER -->
+
+    <!-- MODAL SECTION -->
+    <div id="listen-here-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Hear a sample of what's to come!</p>
+            <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- iFRAME  -->
+                <iframe id="ytplayer" type="text/html" width="640" height="360" src="" frameborder="0"></iframe>
+            </section>
+            <footer class="modal-card-foot">
+            </footer>
+        </div>
+    </div>
+    <!-- END of MODAL -->
+
+</section>
+<!-- END of RESULTS -->
+
+<!-- FOOTER section -->
+<footer class="footer mt-3">
+    <div class="content has-text-centered">
+        <p>
+            <b>Concertium</b> is made with love by <a href="https://github.com/MorningSol">Patrick Laplante</a> and <a href="https://github.com/narcpat">Patrick Narcisse</a>.
+        </p>
+    </div>
+</footer>
+<!-- END of FOOTER -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
