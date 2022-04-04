@@ -146,10 +146,12 @@ var searchButtonHandler = function(event){
 };
 
 var videoButtonHandler = function(event){
+    var videoBtn = event.target
     
-    var band = event.target.id.trim();
-    console.log(band)
-    getVideoData(band)    
+    if(videoBtn.id){
+        var band = event.target.id.trim();
+        getVideoData(band)
+    }    
 };
 
 
