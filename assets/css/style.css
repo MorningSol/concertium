@@ -31,6 +31,12 @@ h2 {
   margin: 0 auto;
   max-width: 1600px;
 }
+
+#logo-placeholder {
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 0;
+}
 /* END of RESULTS STYLES */
 
 /* FOOTER styles */
