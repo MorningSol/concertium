@@ -98,7 +98,7 @@ var createEventCard = function(eventDate, eventVenue, eventUrl ,eventPerformers)
         var ticketBtn = document.createElement("div");
         ticketBtn.classList = "control";
         var button1 = document.createElement("a");
-        button1.classList = "button is-large is-fullwidth is-warning"
+        button1.classList = "button is-large is-fullwidth is-link"
         button1.setAttribute("href",eventUrl);
         button1.setAttribute("target", "_blank") 
         button1.textContent = "Buy a Ticket"
