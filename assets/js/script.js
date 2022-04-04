@@ -25,30 +25,33 @@ var getEventData = function(city){
     .then(function(response){
         response.json().then(function(data){
            console.log(data);
-          
             
+            if (data.events.length == 0 ){
+                    alert("Error: Could Not Find " + city)
+            }
+            else {
 
-            for (var i = 0; i < data.events.length; i++){
+                for (var i = 0; i < data.events.length; i++){
 
-                var eventTitle = data.events[i].title;
-                var eventDate = data.events[i].datetime_local;
-                var eventVenue = data.events[i].venue.name
-                var eventUrl = data.events[i].venue.url;
-                var eventPerformers = data.events[i].performers
-                
-                console.log(eventTitle);
-                console.log(eventDate);
-                console.log(eventVenue);
-                console.log(eventUrl);
-                console.log(eventPerformers);
-                
-                createEventCard(eventTitle, eventDate, eventVenue, eventUrl ,eventPerformers)
-            };
+                    
+                    var eventDate = data.events[i].datetime_local;
+                    var eventVenue = data.events[i].venue.name
+                    var eventUrl = data.events[i].venue.url;
+                    var eventPerformers = data.events[i].performers
+                    
+                    console.log(eventDate);
+                    console.log(eventVenue);
+                    console.log(eventUrl);
+                    console.log(eventPerformers);
+                    
+                    createEventCard(eventDate, eventVenue, eventUrl ,eventPerformers)
+                };
+            };   
         });
     });
 };
 
-var createEventCard = function(eventTitle, eventDate, eventVenue, eventUrl ,eventPerformers){
+var createEventCard = function(eventDate, eventVenue, eventUrl ,eventPerformers){
     
     
     for (var i = 0; i < eventPerformers.length; i++){
@@ -93,15 +96,17 @@ var createEventCard = function(eventTitle, eventDate, eventVenue, eventUrl ,even
         div3.classList = "content";
         var ticketBtn = document.createElement("div");
         ticketBtn.classList = "control";
-        var button1 = document.createElement("button");
-        button1.classList = "button is-large is-fullwidth is-warning" 
+        var button1 = document.createElement("a");
+        button1.classList = "button is-large is-fullwidth is-warning"
+        button1.setAttribute("href",eventUrl);
+        button1.setAttribute("target", "_blank") 
         button1.textContent = "Buy a Ticket"
         var modalBtn = document.createElement("div");
         modalBtn.classList = "control mt-2 block";
         var button2 = document.createElement("button");
-        button2.classList = "button is-large is-fullwidth is-warning";
+        button2.classList = "button js-modal-trigger is-large is-fullwidth is-warning";
         button2.textContent = "Listen Here";
-
+        button2.setAttribute("data-target","listen-here-modal")
         ticketBtn.appendChild(button1)
         modalBtn.appendChild(button2)
         div3.appendChild(ticketBtn)
@@ -119,14 +124,28 @@ var createEventCard = function(eventTitle, eventDate, eventVenue, eventUrl ,even
     
 };
 
-var searchButtonHandler = function(){
-    var city = cityInputEl.value.trim();
-    getEventData(city);
+var searchButtonHandler = function(event){
+    event.preventDefault();
+
+    var allCards = document.querySelectorAll(".column");
+
+    for (var i= 0; i < allCards.length; i++){
+        allCards[i].remove();
+    };
     
-}
+    var city = cityInputEl.value.trim();
+
+    if (city) {
+        getEventData(city);
+        cityInputEl.value = "";
+    }
+    else {
+        alert("Please enter a city");
+    }       
+};
 
 
 
-citySearchBtnEl.addEventListener("click",searchButtonHandler)
+citySearchBtnEl.addEventListener("submit",searchButtonHandler)
 
 
