@@ -1,7 +1,11 @@
 var ytPlayerEl = document.querySelector("#ytplayer");
-var citySearchBtnEl = document.querySelector("#city-search")
-var cityInputEl = document.querySelector("#city-input")
-var resultsBox = document.querySelector("#results-box")
+var citySearchBtnEl = document.querySelector("#city-search");
+var cityInputEl = document.querySelector("#city-input");
+var resultsBox = document.querySelector("#results-box");
+var modalPlayer = document.querySelector("#listen-here-modal");
+var modalBackground = document.querySelector(".modal-background"); 
+var modalDelete = document.querySelector(".delete")
+
 
 var getVideoData = function(band){
     var videoApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + band + "&maxResults=1&type=video&key=AIzaSyCbq62d8uqQFXIYt2QwFKC3x2we8t8KYEc"
@@ -13,7 +17,9 @@ var getVideoData = function(band){
             var videoId = data.items[0].id.videoId;
             console.log(videoId)
             var video = "https://www.youtube.com/embed/" + videoId
+            
             ytPlayerEl.src = video;
+            modalPlayer.setAttribute("class","modal is-active")
         });
     });
 };
@@ -26,7 +32,7 @@ var getEventData = function(city){
         response.json().then(function(data){
            console.log(data);
             
-            if (data.events.length == 0 ){
+            if (data.events.length === 0 ){
                     alert("Error: Could Not Find " + city)
             }
             else {
@@ -38,11 +44,6 @@ var getEventData = function(city){
                     var eventVenue = data.events[i].venue.name
                     var eventUrl = data.events[i].venue.url;
                     var eventPerformers = data.events[i].performers
-                    
-                    console.log(eventDate);
-                    console.log(eventVenue);
-                    console.log(eventUrl);
-                    console.log(eventPerformers);
                     
                     createEventCard(eventDate, eventVenue, eventUrl ,eventPerformers)
                 };
@@ -107,6 +108,7 @@ var createEventCard = function(eventDate, eventVenue, eventUrl ,eventPerformers)
         button2.classList = "button js-modal-trigger is-large is-fullwidth is-warning";
         button2.textContent = "Listen Here";
         button2.setAttribute("data-target","listen-here-modal")
+        button2.setAttribute("id",performer)
         ticketBtn.appendChild(button1)
         modalBtn.appendChild(button2)
         div3.appendChild(ticketBtn)
@@ -119,10 +121,9 @@ var createEventCard = function(eventDate, eventVenue, eventUrl ,eventPerformers)
         div1.appendChild(eventCard);
         resultsBox.appendChild(div1);
 
-    }
-
-    
+    }  
 };
+
 
 var searchButtonHandler = function(event){
     event.preventDefault();
@@ -144,8 +145,24 @@ var searchButtonHandler = function(event){
     }       
 };
 
+var videoButtonHandler = function(event){
+    
+    var band = event.target.id.trim();
+    console.log(band)
+    getVideoData(band)    
+};
 
 
 citySearchBtnEl.addEventListener("submit",searchButtonHandler)
+resultsBox.addEventListener("click",videoButtonHandler)
 
+modalBackground.addEventListener("click",function(){
+    ytPlayerEl.src = "";
+    modalPlayer.setAttribute("class","modal")
+});
+
+modalDelete.addEventListener("click",function(){
+    ytPlayerEl.src = "";
+    modalPlayer.setAttribute("class","modal")
+});
 
