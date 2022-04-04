@@ -27,7 +27,10 @@ h2 {
 /* END of HERO STYLES */
 
 /* RESULTS styles */
-
+.results {
+  margin: 0 auto;
+  max-width: 1600px;
+}
 /* END of RESULTS STYLES */
 
 /* FOOTER styles */
@@ -41,6 +44,6 @@ h2 {
 }
 
 .footer a {
-  color: chocolate;
+  color: rgb(245, 143, 70);
 }
 /* END of FOOTER STYLES */
