@@ -15,10 +15,9 @@ To create a workday scheduler which displays today's date, the different hours o
 
 ## Website
 
-<!-- Website to be added here -->
-<!-- Add screenshot below -->
+https://morningsol.github.io/concertium/
 
-![Screenshot of Concertium]()
+![Screenshot of Concertium](/assets/images/Concertium_Screenshot.jpg)
 
 ## Contribution
 
