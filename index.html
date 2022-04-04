@@ -42,7 +42,7 @@
     <!-- SEARCH RESULTS TITLE -->
     <h2 class="is-size-2 has-text-weight-bold block">Search Results</h2>
     <!-- CONTAINER FOR CARDS -->
-    <div id="results-box"  class="columns mt-3">
+    <div id="results-box" class="tiles columns is-multiline mt-3">
 
         <!-- FIRST CARD -->
         <div class= "column is-4-tablet is-3-desktop">
@@ -72,7 +72,7 @@
                         </div>
                         <!-- LISTEN/MODAL LAUNCH BUTTON -->
                         <div class="control mt-2 block">
-                            <button class="button is-large is-fullwidth is-warning">
+                            <button class="button js-modal-trigger is-large is-fullwidth is-warning" data-target="listen-here-modal">
                                 Listen here
                             </button>
                         </div>
@@ -82,7 +82,6 @@
         </div>
         <!-- END of FIRST CARD -->
 
-        <!-- SECOND CARD EXAMPLE -->
         <div class= "column is-4-tablet is-3-desktop">
             <div class="card">
                 <!-- CARD TITLE AREA -->
@@ -110,7 +109,7 @@
                         </div>
                         <!-- LISTEN/MODAL LAUNCH BUTTON -->
                         <div class="control mt-2 block">
-                            <button class="button is-large is-fullwidth is-warning">
+                            <button class="button js-modal-trigger is-large is-fullwidth is-warning" data-target="listen-here-modal">
                                 Listen here
                             </button>
                         </div>
@@ -118,9 +117,7 @@
                 </div>
             </div>
         </div>
-        <!-- END of SECOND CARD -->
 
-        <!-- THIRD CARD -->
         <div class= "column is-4-tablet is-3-desktop">
             <div class="card">
                 <!-- CARD TITLE AREA -->
@@ -148,7 +145,7 @@
                         </div>
                         <!-- LISTEN/MODAL LAUNCH BUTTON -->
                         <div class="control mt-2 block">
-                            <button class="button is-large is-fullwidth is-warning">
+                            <button class="button js-modal-trigger is-large is-fullwidth is-warning" data-target="listen-here-modal">
                                 Listen here
                             </button>
                         </div>
@@ -156,9 +153,7 @@
                 </div>
             </div>
         </div>
-        <!-- END of THIRD CARD -->
 
-        <!-- FOURTH CARD -->
         <div class= "column is-4-tablet is-3-desktop">
             <div class="card">
                 <!-- CARD TITLE AREA -->
@@ -186,7 +181,7 @@
                         </div>
                         <!-- LISTEN/MODAL LAUNCH BUTTON -->
                         <div class="control mt-2 block">
-                            <button class="button is-large is-fullwidth is-warning">
+                            <button class="button js-modal-trigger is-large is-fullwidth is-warning" data-target="listen-here-modal">
                                 Listen here
                             </button>
                         </div>
@@ -194,13 +189,48 @@
                 </div>
             </div>
         </div>
-        <!-- END of FOURTH CARD -->
+
+        <div class= "column is-4-tablet is-3-desktop">
+            <div class="card">
+                <!-- CARD TITLE AREA -->
+                <div class="media has-text-centered px-6">
+                    <div class="media-content mt-4">
+                        <time datetime="2022-5-1">7:00PM - 1 May 2022</time>
+                        <p class="title is-4 mt-1">John Smith</p>
+                        <p class="subtitle is-5">Canadian Tire Center</p>
+                    </div>
+                </div>
+                <!-- CARD IMG -->
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://seatgeek.com/images/performers-landscape/billy-talent-ff43d3/2280/29669/huge.jpg" alt="Placeholder image">
+                    </figure>
+                </div>
+                <!-- CARD CONTENT -->
+                <div class="card-content block">
+                    <div class="content">
+                        <!-- BUY A TICKET BUTTON -->
+                        <div class="control">
+                            <button class="button is-large is-fullwidth is-link">
+                                Buy a ticket
+                            </button>
+                        </div>
+                        <!-- LISTEN/MODAL LAUNCH BUTTON -->
+                        <div class="control mt-2 block">
+                            <button class="button js-modal-trigger is-large is-fullwidth is-warning" data-target="listen-here-modal">
+                                Listen here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <!-- END of CARD CONTAINER -->
 
     <!-- MODAL SECTION -->
-    <div class="modal">
+    <div id="listen-here-modal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
