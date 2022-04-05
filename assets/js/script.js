@@ -8,8 +8,10 @@ var modalCloseEl = document.querySelectorAll(".modal-background, .delete, .modal
 var modalAlertEl = document.querySelector("#message-modal");
 var alertMessageEl = document.querySelector("#alert-message");
 
+var oneMonthPeriod= moment().add(1, "M").format()
+
 var getVideoData = function(band){
-    var videoApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + band + "&maxResults=1&type=video&key=AIzaSyCbq62d8uqQFXIYt2QwFKC3x2we8t8KYEc";
+    var videoApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + band + " music&maxResults=1&type=video&key=AIzaSyCbq62d8uqQFXIYt2QwFKC3x2we8t8KYEc";
 
     fetch(videoApi)
     .then(function(response){
@@ -21,18 +23,22 @@ var getVideoData = function(band){
             ytPlayerEl.src = video;
             modalPlayerEl.classList.add("is-active");
         });
-    });
+    })
+    .catch(function(error) {
+        alertMessageEl.textContent = "Unable to connect to YouTube Data API.";
+                    modalAlertEl.classList.add("is-active");
+        
+    }); 
 };
 
 var getEventData = function(city){
-    var concertApi = "https://api.seatgeek.com/2/events?venue.city=" + city + "&per_page=10&taxonomies.name=concert&client_id=MjYzNTM0MjB8MTY0ODc0MDYyMS44ODMyNzE1";
+    var concertApi = "https://api.seatgeek.com/2/events?datetime_utc.lte=" + oneMonthPeriod + "&venue.city=" + city + "&per_page=100&taxonomies.name=concert&client_id=MjYzNTM0MjB8MTY0ODc0MDYyMS44ODMyNzE1";
 
     fetch(concertApi)
     .then(function(response){
         response.json().then(function(data){
-          
             if (data.events.length === 0 ){
-                    alertMessageEl.textContent = "Could not find events in the city of " + city;
+                    alertMessageEl.textContent = "Could not find events in the city of " + city +".";
                     modalAlertEl.classList.add("is-active");
             }
             else {
@@ -50,7 +56,11 @@ var getEventData = function(city){
                 };
             };   
         });
-    });
+    })
+    .catch(function(error) {
+        alertMessageEl.textContent = "Unable to connect to SeatGeek API.";
+                    modalAlertEl.classList.add("is-active");
+    }); 
 };
 
 var createEventCard = function(eventDate, eventVenue, eventUrl ,eventPerformers){
@@ -144,7 +154,7 @@ var searchButtonHandler = function(event){
         cityInputEl.value = "";
     }
     else {
-        alertMessageEl.textContent = "Please enter a city";
+        alertMessageEl.textContent = "Please enter a city.";
         modalAlertEl.classList.add("is-active");
     }       
 };
