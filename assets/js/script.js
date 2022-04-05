@@ -166,6 +166,7 @@ resultsBoxEl.addEventListener("click",videoButtonHandler);
 
 for (var i = 0; i < modalCloseEl.length; i++){
     modalCloseEl[i].addEventListener("click", function(){
+        ytPlayerEl.src = ""
         modalPlayerEl.classList.remove("is-active");
         modalAlertEl.classList.remove("is-active");
     });
