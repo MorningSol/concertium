@@ -32,7 +32,7 @@ var getEventData = function(city){
         response.json().then(function(data){
           
             if (data.events.length === 0 ){
-                    alertMessageEl.textContent = "Could not find the city of " + city;
+                    alertMessageEl.textContent = "Could not find events in the city of " + city;
                     modalAlertEl.classList.add("is-active");
             }
             else {
