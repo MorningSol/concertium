@@ -2,7 +2,7 @@
 
 ## Purpose
 
-To create a workday scheduler which displays today's date, the different hours of the work day, and any saved tasks for the day. The save tasks must be retrievable when the page is later reloaded.
+Have you ever had a craving to listen to some live music, but you weren't sure what concerts were available in your city? You then do a Google search only to find that you don't know any of the bands that are coming to your area. Well, Concertium is your one-stop-shop to find out what concerts are coming near you, and what the artists actually sound like. Visit Concertium for up-to-date concert listings in whatever city you live in. Don't know any of the artists/bands listed? Click the "Listen Here" button to get a sneak peek of what they will be bringing to your town. Ready to buy your ticket? Select "Buy a Ticket" and you will be taken to a hub where you can select your preferred tickets for the concert you want to attend. Concertium, we bring people "together for music".
 
 ## Built With
 
@@ -15,10 +15,9 @@ To create a workday scheduler which displays today's date, the different hours o
 
 ## Website
 
-<!-- Website to be added here -->
-<!-- Add screenshot below -->
+https://morningsol.github.io/concertium/
 
-![Screenshot of Concertium]()
+![Screenshot of Concertium](/assets/images/Concertium_Screenshot.jpg)
 
 ## Contribution
 

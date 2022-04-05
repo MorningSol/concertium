@@ -42,29 +42,45 @@
     <!-- SEARCH RESULTS TITLE -->
     <h2 class="is-size-2 has-text-weight-bold block">Search Results</h2>
     <!-- CONTAINER FOR CARDS -->
+
     <div id="results-box" class="tiles columns is-multiline mt-3">
+
+        <!-- IMG PLACEHOLDER -->
+            <div id="logo-placeholder">
+                <img src="./assets/images/Concertium_BG_img.png" alt="Concertium logo and tag line" />
+            </div>
+        <!-- END OF IMG PLACEHOLDER -->
 
     </div>
     <!-- END of CARD CONTAINER -->
 
-    <!-- MODAL SECTION -->
+    <!-- LISTEN MODAL SECTION -->
     <div id="listen-here-modal" class="modal">
+        <div class="modal-background"></div>
+            <div class="modal-content">
+                <iframe id="ytplayer" type="text/html" width="640" height="360" src="" frameborder="0">
+                </iframe>
+            </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!-- END of LISTEN MODAL -->
+
+    <!-- MESSAGE MODAL SECTION -->
+    <div id="message-modal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">Hear a sample of what's to come!</p>
-            <button class="delete" aria-label="close"></button>
+                <p class="modal-card-title has-text-centered has-text-danger">Warning!</p>
+            <button class="delete is-large" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
-                <!-- iFRAME  -->
-                <iframe id="ytplayer" type="text/html" width="640" height="360" src="" frameborder="0"></iframe>
+                <!-- EMPTY P TAG -->
+                <p></p>
             </section>
-            <footer class="modal-card-foot">
-            </footer>
+            <footer class="modal-card-foot"></footer>
         </div>
     </div>
-    <!-- END of MODAL -->
-
+    <!-- END of MESSAGE MODAL -->
 </section>
 <!-- END of RESULTS -->
 
