@@ -7,8 +7,9 @@ var modalPlayerEl = document.querySelector("#listen-here-modal");
 var modalCloseEl = document.querySelectorAll(".modal-background, .delete, .modal-close"); 
 var modalAlertEl = document.querySelector("#message-modal");
 var alertMessageEl = document.querySelector("#alert-message");
+var logoEl = document.querySelector("#logo");
 
-var oneMonthPeriod= moment().add(1, "M").format()
+var oneMonthPeriod= moment().add(1, "M").format();
 
 var getVideoData = function(band){
     var videoApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + band + " music&maxResults=1&type=video&key=AIzaSyCbq62d8uqQFXIYt2QwFKC3x2we8t8KYEc";
@@ -173,6 +174,10 @@ var videoButtonHandler = function(event){
 
 citySearchBtnEl.addEventListener("submit",searchButtonHandler);
 resultsBoxEl.addEventListener("click",videoButtonHandler);
+
+logoEl.addEventListener("click", function(){
+    location.reload();
+})
 
 for (var i = 0; i < modalCloseEl.length; i++){
     modalCloseEl[i].addEventListener("click", function(){
