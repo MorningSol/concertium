@@ -8,9 +8,13 @@ var modalCloseEl = document.querySelectorAll(".modal-background, .delete, .modal
 var modalAlertEl = document.querySelector("#message-modal");
 var alertMessageEl = document.querySelector("#alert-message");
 var logoEl = document.querySelector("#logo");
+var citySearchList = document.querySelector("#cities");
+var citySearchListArr = [];
 
 var oneMonthPeriod= moment().add(1, "M").format();
 
+
+// search and retrieve data for outube music video
 var getVideoData = function(band){
     var videoApi = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + band + " music&maxResults=1&type=video&key=AIzaSyCbq62d8uqQFXIYt2QwFKC3x2we8t8KYEc";
 
@@ -32,6 +36,7 @@ var getVideoData = function(band){
     }); 
 };
 
+//  gather data for concert events with user city input
 var getEventData = function(city){
     var concertApi = "https://api.seatgeek.com/2/events?datetime_utc.lte=" + oneMonthPeriod + "&venue.city=" + city + "&per_page=100&taxonomies.name=concert&client_id=MjYzNTM0MjB8MTY0ODc0MDYyMS44ODMyNzE1";
 
@@ -55,6 +60,8 @@ var getEventData = function(city){
                     
                     createEventCard(eventDate, eventVenue, eventUrl ,eventPerformers);
                 };
+                logoPlaceholderEl.remove();
+                saveCity(city);
             };   
         });
     })
@@ -64,10 +71,9 @@ var getEventData = function(city){
     }); 
 };
 
+// create an event card for every performer
 var createEventCard = function(eventDate, eventVenue, eventUrl ,eventPerformers){
     
-    logoPlaceholderEl.remove();
-
     for (var i = 0; i < eventPerformers.length; i++) {
         var performer = eventPerformers[i].name;
         var performerImage = eventPerformers[i].image;
@@ -134,11 +140,10 @@ var createEventCard = function(eventDate, eventVenue, eventUrl ,eventPerformers)
         eventCard.appendChild(cardContent);
         div1.appendChild(eventCard);
         resultsBoxEl.appendChild(div1);
-
     };  
 };
 
-
+// for handling the city inputed by user
 var searchButtonHandler = function(event){
     event.preventDefault();
 
@@ -160,6 +165,7 @@ var searchButtonHandler = function(event){
     }       
 };
 
+// handle which music video button was clicked
 var videoButtonHandler = function(event){
     var videoBtn = event.target;
     
@@ -169,16 +175,56 @@ var videoButtonHandler = function(event){
     }    
 };
 
+//  create a option for the search history dropdown list
+var createCityOption = function(city){
 
+city = city[0].toUpperCase() + city.slice(1);
+
+var cityOption = document.createElement("option")
+cityOption.setAttribute("value", city);
+citySearchList.appendChild(cityOption);
+};
+
+// save city to array and push to localstorage
+var saveCity = function(city){
+    
+    var cityExist = citySearchListArr.includes(city);
+       
+    if(!cityExist){
+        citySearchListArr.push(city);
+        localStorage.setItem("cities", JSON.stringify(citySearchListArr));
+
+        createCityOption(city);
+    };
+};
+
+// load all city search history
+var loadCityList = function(){
+    
+    var loadedCities = localStorage.getItem("cities");
+    
+    if (!loadedCities) {
+        return false;
+    };
+    
+    loadedCities = JSON.parse(loadedCities);
+      
+    for (var i = 0; i < loadedCities.length; i++) {
+        createCityOption(loadedCities[i]);
+    };
+    citySearchListArr = loadedCities;
+};
 
 
 citySearchBtnEl.addEventListener("submit",searchButtonHandler);
 resultsBoxEl.addEventListener("click",videoButtonHandler);
 
+// clicking on logo refreshes page
 logoEl.addEventListener("click", function(){
     location.reload();
-})
+});
 
+// event listeners to close all modals
 for (var i = 0; i < modalCloseEl.length; i++){
     modalCloseEl[i].addEventListener("click", function(){
         ytPlayerEl.src = ""
@@ -187,4 +233,4 @@ for (var i = 0; i < modalCloseEl.length; i++){
     });
 };
     
-
+loadCityList();

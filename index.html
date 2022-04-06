@@ -26,7 +26,11 @@
             <!-- SEARCH FIELD & BUTTON -->
             <form id="city-search" class="field is-grouped mt-1">
                 <div class="control is-expanded">
-                    <input id="city-input" name="city-input" class="input is-medium" type="text" placeholder="Enter city name">  
+                    <input list="cities" id="city-input" name="city-input" class="input is-medium" type="text" placeholder="Enter city name">  
+                        <datalist id="cities">
+                             
+                        </datalist>
+                    </input>
                 </div>
                 <div class="control">
                     <button class="button is-medium is-link">Search</button>
